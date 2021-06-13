@@ -2,7 +2,7 @@ import http from 'http';
 import express from 'express';
 import logging from './config/logging';
 import config from './config/config';
-import sampleRoutes from './routes/sample';
+import sampleRoutes from './routes/book';
 
 const NAMESPACE = 'Server';
 const router = express();
