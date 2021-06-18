@@ -2,10 +2,19 @@ import http from 'http';
 import express from 'express';
 import logging from './config/logging';
 import config from './config/config';
+import mongoose from 'mongoose';
 import bookRoutes from './routes/book';
 
 const NAMESPACE = 'Server';
 const router = express();
+
+/** Connect to Mongo */
+mongoose.connect(config.mongo.url, config.mongo.options)
+    .then(result => {
+        logging.info(NAMESPACE, "Connected to mongoDB!");
+}).catch(error => {
+    logging.error(NAMESPACE, error.message, error);
+});
 
 /** Log the request */
 router.use((req, res, next) => {
