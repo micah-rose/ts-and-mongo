@@ -42,4 +42,4 @@ const getAllBooks = (req: Request, res: Response, next: NextFunction) => {
     })
 };
 
-export default { getAllBooks };
+export default { getAllBooks, createBook };
